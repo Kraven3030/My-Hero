@@ -1,16 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-
+import CryptoJS from 'crypto-js';
 import SearchResults from '../SearchResults/searchResults'
 import './search.css'
 
 function Search() {
-
     const [heroResults, setHeroResults] = useState([]);
     const [searchString, setSearchString] = useState('');
-    const [mediaType, setMediaType] = useState("hero");
+    const [mediaType, setMediaType] = useState("characters");
     const navigate = useNavigate();
+
     useEffect(() => {
         if (searchString !== '') {
             getHero(searchString)
@@ -20,9 +20,10 @@ function Search() {
     }, [searchString, mediaType]);
 
     const queryOptions = {
-        api_key: process.env.REACT_APP_COMICSDB_API_KEY,
-        api: 'https://comicvine.gamespot.com/api/search/',
-        endpoint: `${mediaType}`
+        public_api_key: `635ffe2b0fb88eae023c1b0cc6d96fc5`,
+        private_api_key: process.env.REACT_APP_MARVEL_API_PRIVATE_KEY,
+        api: 'http://gateway.marvel.com/v1/public',
+        endpoint: `/characters`
     };
 
     const handleChange = async (event) => {
@@ -34,18 +35,25 @@ function Search() {
     }
 
     function getHero(searchString) {
-        const url = `${queryOptions.api}${queryOptions.endpoint}?api_key=${queryOptions.api_key}&query=${searchString}`;
+        const ts = Date.now();
+        const hash = CryptoJS.MD5(ts + process.env.REACT_APP_MARVEL_API_PRIVATE_KEY + process.env.REACT_APP_MARVEL_API_PUBLIC_KEY).toString();
+        const url = `${queryOptions.api}/characters?nameStartsWith=${searchString}&ts=${ts}&apikey=${queryOptions.public_api_key}&hash=${hash}`;
         fetch(url)
             .then((response) => response.json())
             .then((response) => {
                 setHeroResults(response);
-            });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
     }
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
         navigate(`/search-results?query=${searchString}`)
     }
+
 
     return (
         <div className="flex justify-center">

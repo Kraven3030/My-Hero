@@ -11,7 +11,7 @@ const Schema = mongoose.Schema
 
 const heroSchema = new Schema(
     {
-        image: {
+        thumbnail: {
             type: String,
             required: true,
         },
@@ -23,11 +23,11 @@ const heroSchema = new Schema(
             type: String,
             required: true,
         },
-        publisher: {
+        creators: {
             type: String,
             required: true,
         },
-        count_of_issue_appearances: [{
+        comics: [{
             type: Number
         }],
         id: {
