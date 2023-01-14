@@ -6,8 +6,9 @@ export async function createUser(formData) {
     return data
 }
 
-// // Axios request to log in to user account
+// Axios request to log in to user account
 export async function loginToAccount(formData) {
     const { data } = await axios.post('http://localhost:7500/users/login', formData)
     return data
 }
+

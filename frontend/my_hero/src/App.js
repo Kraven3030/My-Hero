@@ -8,6 +8,7 @@ import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
 import Home from './pages/Home/home'
 import Main from './pages/Main/main'
+import Search from "./components/Search/search";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/signup" element={<Signup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/" element={<Home />} />
           <Route path='/main' element={<Main />} />
+          <Route path='/searchbar' element={<Search />} />
         </Routes>
       </main>
     </>

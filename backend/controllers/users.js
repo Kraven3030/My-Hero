@@ -120,7 +120,9 @@ router.get('/token', isAuthenticated, async (req, res) => {
     })
 })
 
-// GET USER DATA (if user is logged in)
+//=======================================
+//   GET USER DATA (IF USER IS LOGGED IN)
+//=======================================
 router.get('/:id', async (req, res) => {
     const foundUser = await User.findById(req.params.id)
     if (foundUser) {
