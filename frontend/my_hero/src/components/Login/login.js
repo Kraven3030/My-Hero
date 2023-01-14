@@ -29,7 +29,7 @@ function Login(props) {
                         username: '',
                         password: ''
                     })
-                    navigate('/home', { replace: true })
+                    navigate('/main', { replace: true })
                 } else {
                     window.alert("Login error! Username or Password incorrect!");
                 }
