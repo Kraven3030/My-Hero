@@ -20,16 +20,16 @@ function Nav(props) {
         if (props.isLoggedIn) {
             setNavItems(
                 initialState.concat(
-                    <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-                        <ul class="flex flex-wrap -mb-px">
-                            <li key="2" class="mr-2">
-                                <a href="/main" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-red-600 hover:border-red-300 dark:hover:text-gray-300">Home</a>
+                    <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                        <ul className="flex flex-wrap -mb-px">
+                            <li key="2" className="mr-2">
+                                <a href="/main" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-red-600 hover:border-red-300 dark:hover:text-gray-300">Home</a>
                             </li>
-                            <li key="3" class="mr-2">
-                                <a href="/" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-blue-300 dark:hover:text-gray-300">My Reviews</a>
+                            <li key="3" className="mr-2">
+                                <a href="/" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-blue-600 hover:border-blue-300 dark:hover:text-gray-300">My Reviews</a>
                             </li>
-                            <li key="4" class="mr-2">
-                                <button onClick={handleLogout}><a href="/" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-yellow-600 hover:border-yellow-300 dark:hover:text-gray-300"><strong>Logout</strong></a></button>
+                            <li key="4" className="mr-2">
+                                <button onClick={handleLogout}><a href="/" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-yellow-600 hover:border-yellow-300 dark:hover:text-gray-300"><strong>Logout</strong></a></button>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +41,7 @@ function Nav(props) {
                     <div>
                         <ul>
                             <li key="4">
-                                <Link to="/login"> <a href="/login" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-green-600 hover:border-green-300 dark:hover:text-geen-300"><strong>Login</strong></a></Link>
+                                <Link to="/login"> <a href="/login" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-green-600 hover:border-green-300 dark:hover:text-geen-300"><strong>Login</strong></a></Link>
                             </li>
                         </ul>
                     </div>
