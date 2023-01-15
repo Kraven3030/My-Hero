@@ -1,25 +1,22 @@
 import React from 'react';
-import HeroResults from '../HeroResults/heroResults';
+import { useState } from 'react'
 
-const SearchResults = ({ mediaResults, searchString, clearSearchBar }) => {
-    // check if the mediaResults object exists
-    if (mediaResults) {
-        // check if the mediaResults object has a filters field
-        if (mediaResults.filters) {
-            // check if the filters field has any data
-            if (mediaResults.filters.length > 0) {
-                return (
-                    <HeroResults mediaResults={mediaResults}
-                        clearSearchBar={clearSearchBar} />
-                )
-            } else {
-                if (searchString.length !== 0) {
-                    return (
-                        <h2 className="">No hero found!</h2>
-                    )
-                }
-            }
-        }
-    }
+import Container from '../Container/container';
+import HeroResults from '../HeroResults/heroResults';
+import Search from '../Search/search'
+
+
+const SearchResults = () => {
+    const [heroes, setHeroes] = useState([])
+
+
+    return (
+        <Container>
+            <Search setter={setHeroes} />
+            <HeroResults>
+
+            </HeroResults>
+        </Container>
+    )
 }
 export default SearchResults;

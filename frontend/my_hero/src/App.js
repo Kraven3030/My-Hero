@@ -8,7 +8,9 @@ import Login from './components/Login/login'
 import Signup from './components/Signup/signup'
 import Home from './pages/Home/home'
 import Main from './pages/Main/main'
+import AboutHero from "./pages/About/aboutHero";
 import Search from "./components/Search/search";
+import SearchResults from "./components/SearchResults/searchResults";
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path='/main' element={<Main />} />
           <Route path='/searchbar' element={<Search />} />
+          <Route path='/search-results' element={<SearchResults />} />
+          <Route path='/:id' element={<AboutHero />} />
         </Routes>
       </main>
     </>
