@@ -17,21 +17,31 @@ export async function loginToAccount(formData) {
 
 
 //===============================================================================================
-// Function to fetch all heroes from Marvel database
 
 const API_URL = process.env.REACT_APP_BASE_URL;
+// This function concanenates 3 parameters into a single string. Then it is passed as an argument to the MD5 function.
+// MD5 function is a javascript implementation of the MD5 hash alogorithm. It takes a string as an input and returns a 128-bit hash value.
+// hash is required inorder to use the marvel API database along with ts(timestamp)
+// Finally the hash is used to authenticate the API request to the Marvel API.
 const getHash = (ts, secretKey, publicKey) => {
     return MD5(ts + secretKey + publicKey).toString();
 }
 
+// Function to fetch all heroes from Marvel database
+// Uses a fetch method to call a specific url to the Marvel Api and passing the parameters to the url for a search
 const fetchHeroes = async (value) => {
+    //variable to concatenate the API endpoint and query parameters.
     const baseUrl = `${API_URL}/v1/public/characters`
+    //time stamp
     const ts = Date.now().toString();
+    // Public key provided my Marvel which is stored in the .env
     const api_key = process.env.REACT_APP_MARVEL_API_KEY_PUBLIC
+    // Private key provided by marvel which is also stored in the .env
     const privateKey = process.env.REACT_APP_MARVEL_API_KEY_PRIVATE
     const hash = getHash(ts, privateKey, api_key)
     const url = `${baseUrl}?ts=${ts}&apikey=${api_key}&hash=${hash}&nameStartsWith=${value}`
 
+    // try- catch statement to catch any error that might happen during the fetching process, in case of an error, the function will log the error to the console and return undefined.
     try {
         const response = await fetch(url)
         const data = await response.json()
@@ -62,13 +72,15 @@ const fetchHero = async (id) => {
 }
 
 //================================================================================================
+// All code below is exactly the same as the code above but for comics instead of heroes...
+// Function to get data for all comics once searched
 const fetchComics = async (value) => {
     const baseUrl = `${API_URL}/v1/public/comics`
     const ts = Date.now().toString();
     const api_key = process.env.REACT_APP_MARVEL_API_KEY_PUBLIC
     const privateKey = process.env.REACT_APP_MARVEL_API_KEY_PRIVATE
     const hash = getHash(ts, privateKey, api_key)
-    const url = `${baseUrl}?ts=${ts}&apikey=${api_key}&hash=${hash}&TitleStartsWith=${value}`
+    const url = `${baseUrl}?ts=${ts}&apikey=${api_key}&hash=${hash}&titleStartsWith=${value}`
 
     try {
         const response = await fetch(url)
@@ -81,6 +93,7 @@ const fetchComics = async (value) => {
     }
 }
 
+// Function to get data for a specific comic once chosen from search results
 const fetchComic = async (id) => {
     const baseUrl = `${API_URL}/v1/public/comics/${id}`
     const ts = Date.now().toString();
