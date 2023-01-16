@@ -10,6 +10,7 @@
     "bootstrap": "^5.3.0-alpha1",
     "comic-vine-sdk": "^1.2.2",
     "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
     "flowbite": "^1.6.2",
     "flowbite-react": "^0.3.7",
     "react": "^18.2.0",
