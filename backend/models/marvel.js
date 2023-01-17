@@ -6,10 +6,10 @@ const Schema = mongoose.Schema
 
 
 //==================
-//   HERO SCHEMA  
+//    SCHEMA  
 //==================
 
-const heroSchema = new Schema(
+const marvelSchema = new Schema(
     {
         thumbnail: {
             type: String,
@@ -23,13 +23,6 @@ const heroSchema = new Schema(
             type: String,
             required: true,
         },
-        creators: {
-            type: String,
-            required: true,
-        },
-        comics: [{
-            type: Number
-        }],
         id: {
             type: Number,
             required: true,
@@ -45,10 +38,10 @@ const heroSchema = new Schema(
 //   MODEL USING ITEM SCHEMA  
 //=============================
 
-const Hero = mongoose.model('Hero', heroSchema);
+const Marvel = mongoose.model('Marvel', marvelSchema);
 
 //===================
 //   EXPORT MODEL  
 //===================
 
-module.exports = Hero;
+module.exports = Marvel;

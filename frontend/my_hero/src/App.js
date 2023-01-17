@@ -1,15 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import './App.css';
 
 // Imports for components and pages
-import Nav from './components/Nav/nav'
-import Login from './components/Login/login'
-import Signup from './components/Signup/signup'
-import Home from './pages/Home/home'
-import Main from './pages/Main/main'
+import Nav from './components/Nav/nav';
+import Login from './components/Login/login';
+import Signup from './components/Signup/signup';
+import Home from './pages/Home/home';
+import Main from './pages/Main/main';
 import AboutHero from "./pages/AboutHero/aboutHero";
 import AboutComic from "./pages/AboutComic/aboutComic";
+import NewReview from "./pages/NewReview/newReview";
+import MyReviews from "./pages/MyReviews/myReviews";
 import Search from "./components/Search/search";
 import SearchResults from "./components/SearchResults/searchResults";
 
@@ -41,6 +43,8 @@ function App() {
           <Route path='/search-results' element={<SearchResults />} />
           <Route path='/:id' element={<AboutHero />} />
           <Route path='/comic/:id' element={<AboutComic />} />
+          <Route path='/NewReview' element={<NewReview />} />
+          <Route path='/MyReviews' element={<MyReviews />} />
         </Routes>
       </main>
     </>

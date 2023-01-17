@@ -16,11 +16,15 @@ const User = db.User
 
 function isAuthenticated(req, res, next) {
     if (req.headers.authorization) {
-        next()
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.decode(token, config.jwtSecret);
+        req.userId = decoded._id;
+        next();
     } else {
-        res.sendStatus(401)
+        res.sendStatus(401);
     }
 }
+
 
 //==================
 //     ROUTES
@@ -89,10 +93,14 @@ router.post('/login', async (req, res) => {
                 const token = jwt.encode(payload, config.jwtSecret);
                 const userReviews = await db.Review({ user: foundUser._id })
                 res.json({
-                    user: foundUser,
+                    username: foundUser.username,
+                    userId: foundUser._id,
                     token: token,
                     reviews: userReviews
                 });
+                localStorage.setItem('username', foundUser.username)
+                localStorage.setItem('userId', foundUser._id)
+                localStorage.setItem('token', token)
             } else {
                 res.status(401).json({ message: "Invalid Credentials" });
             }
@@ -104,6 +112,7 @@ router.post('/login', async (req, res) => {
         return res.status(500).json({ message: 'An error occurred', error });
     }
 });
+
 
 
 // Token Show. Finds all reviews in the database where the reviewer field is equal to the user's ID

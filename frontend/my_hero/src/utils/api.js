@@ -6,15 +6,50 @@ import MD5 from 'crypto-js/md5'
 // Axios request for user signup
 export async function createUser(formData) {
     const { data } = await axios.post('http://localhost:7500/users/signup', formData)
+    localStorage.setItem('username', data.username)
+    localStorage.setItem('userId', data.userId)
+    localStorage.setItem('token', data.token)
     return data
 }
 //================================================================
 // Axios request to log in to user account
 export async function loginToAccount(formData) {
     const { data } = await axios.post('http://localhost:7500/users/login', formData)
+    localStorage.setItem('username', data.username)
+    localStorage.setItem('userId', data.userId)
+    localStorage.setItem('token', data.token)
     return data
 }
-
+//=================================================================
+// Axios request to get user data if user is logged in
+export async function getUserdata(userId) {
+    const { data } = await axios.get('http://localhost:7500/users/', userId)
+    return data
+}
+//==================================================================
+// Axios request to get all users personal reviews is user is logged in
+export async function userReviews(userId) {
+    const { data } = await axios.get(`http://localhost:7500/reviews/${userId}`)
+    return data
+}
+//==================================================================
+//Get all reviews by Marvel ID
+export async function allReviews(marvelId) {
+    const { data } = await axios.get(`http://localhost:7500/reviews/${marvelId}`)
+    return data
+}
+//==================================================================
+// Axios request that will allow users to create revies once they are logged in
+export async function createReview(reviewData) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        },
+        data: reviewData
+    }
+    const { data } = await axios.post('http://localhost:7500/reviews/create/', config)
+    return data
+}
 
 //===============================================================================================
 

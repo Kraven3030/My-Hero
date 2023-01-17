@@ -6,16 +6,20 @@ import { fetchHeroes, fetchComics } from '../../utils/api'
 
 function Search({ setHeroes, setComics }) {
     const [searchType, setSearchType] = useState("heroes")
+    // The useRef hook is used to create a reference variable which is used to store current values of the input fields.
     const input = useRef("")
     const inputComics = useRef("")
     const inputHero = useRef("")
 
-    // Click event for when a user selects the hero radio button and searches for a specific hero
+
+    // Both handleClick functions below are both checking if the search type is equal to heroes or comics and if its true it then assigns a current value of the input ref to the value variable.
     const handleClickHero = async (event) => {
         event.preventDefault();
+        // Checking to see if searchtype is equal to heroes
         const value = searchType === "heroes" ? input.current.value : inputHero.current.value
         if (value === "") return;
 
+        // Function to fetch the heroes from the Marvel API using the value as the parameter.
         try {
             const heroes = await fetchHeroes(value)
             if (typeof setHeroes === 'function') setHeroes(heroes);
@@ -24,12 +28,14 @@ function Search({ setHeroes, setComics }) {
         }
     }
 
-    // Click event for when a user selects the comic radio button and searches for a specific comic
+
     const handleClickComic = async (event) => {
         event.preventDefault();
+        // Checking to see if searchtype is equal to comics
         const value = searchType === "comics" ? input.current.value : inputComics.current.value;
         if (value === "") return;
 
+        // Function to fetch the comics from the Marvel API using the value as the parameter.
         try {
             const comics = await fetchComics(value)
             if (typeof setComics === 'function') setComics(comics);

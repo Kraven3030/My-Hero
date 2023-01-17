@@ -11,9 +11,12 @@ const Review = db.Review;
 
 function isAuthenticated(req, res, next) {
     if (req.headers.authorization) {
-        next()
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.decode(token, config.jwtSecret);
+        req.userId = decoded._id;
+        next();
     } else {
-        res.sendStatus(401)
+        res.sendStatus(401);
     }
 }
 
@@ -27,8 +30,7 @@ function isAuthenticated(req, res, next) {
 //======================
 router.post('/create', isAuthenticated, async (req, res) => {
     const newReview = {
-        heroId: req.body.heroId,
-        heroTitle: req.body.heroTitle,
+        title: req.body.title,
         body: req.body.body,
         reviewer: req.body.reviewer
     }
@@ -81,7 +83,7 @@ router.get('/user', (req, res) => {
 router.put('/update', isAuthenticated, async (req, res) => {
     const updatedReview = await db.Review.findByIdAndUpdate(
         req.body.reviewId,
-        { heroTitle: req.body.heroTitle, body: req.body.body },
+        { title: req.body.title, body: req.body.body },
         { new: true }
     );
     res.json(updatedReview)
@@ -99,12 +101,12 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 })
 
 //==========================
-//   REVIEWS BY COMIC ID
+//   REVIEWS BY Marvel ID
 //==========================
-router.get(':/id', async (req, res) => {
-    console.log("Reviews by hero ID");
+router.get('/id', async (req, res) => {
+    console.log("Reviews by marvel ID");
     const populatedReviews = await
-        Review.findOne({ "heroId": req.params.id }).populate('reviewer')
+        Review.find({ "marvelId": req.params.id }).populate('reviewer')
     res.json(populatedReviews)
 })
 

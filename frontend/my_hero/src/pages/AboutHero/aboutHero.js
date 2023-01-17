@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from 'flowbite-react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { fetchHero } from '../../utils/api'
 
 function AboutHero() {
@@ -33,6 +33,7 @@ function AboutHero() {
                             ))}
                         </ul>
                     </div>
+                    <Link to='/NewReview'><button className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Leave A Review</button></Link>
                 </Card>
             </div>
         </div>

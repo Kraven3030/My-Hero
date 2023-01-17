@@ -26,7 +26,7 @@ function Nav(props) {
                                 <a href="/main" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-red-600 hover:border-red-300 dark:hover:text-gray-300">Home</a>
                             </li>
                             <li key="3" className="mr-2">
-                                <a href="/" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-blue-600 hover:border-blue-300 dark:hover:text-gray-300">My Reviews</a>
+                                <a href="/MyReviews" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-blue-600 hover:border-blue-300 dark:hover:text-gray-300">My Reviews</a>
                             </li>
                             <li key="4" className="mr-2">
                                 <button onClick={handleLogout}><a href="/" className="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-black hover:text-yellow-600 hover:border-yellow-300 dark:hover:text-gray-300"><strong>Logout</strong></a></button>

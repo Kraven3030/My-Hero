@@ -22,5 +22,6 @@ mongoose.connection.on('error', (error) => {
     console.log('mongoose error ', error);
 });
 
+module.exports.Marvel = require("./marvel")
 module.exports.User = require("./user")
 module.exports.Review = require("./review")

@@ -3,11 +3,15 @@ const Schema = mongoose.Schema
 
 
 const reviewSchema = new Schema({
-    heroId: {
+    marvelId: {
         type: Number,
-        required: true
+        required: false
     },
-    heroTitle: {
+    marvelTitle: {
+        type: String,
+        required: false
+    },
+    title: {
         type: String,
         required: true
     },
