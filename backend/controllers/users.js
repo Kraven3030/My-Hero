@@ -1,31 +1,26 @@
 //==================
 //   DEPENDENCIES  
 //==================
-const express = require('express')
-const router = express.Router()
-const jwt = require('jwt-simple')
+const express = require('express');
+const router = express.Router();
+const jwt = require('jwt-simple');
 const bcrypt = require('bcrypt');
-const config = require('../config/config')
+const passport = require('../config/passport');
+const config = require('../config/config');
 const saltRounds = 10;
 
-// Configs
 // Models
 const db = require("../models");
-const User = db.User
+const User = db.User;
 
 
 function isAuthenticated(req, res, next) {
     if (req.headers.authorization) {
-        const token = req.headers.authorization.split(" ")[1];
-        const decoded = jwt.decode(token, config.jwtSecret);
-        req.userId = decoded._id;
-        next();
+        next()
     } else {
-        res.sendStatus(401);
+        res.sendStatus(401)
     }
 }
-
-
 //==================
 //     ROUTES
 //==================
@@ -35,83 +30,81 @@ function isAuthenticated(req, res, next) {
 //   SIGN UP ROUTE / CREATE USER
 //=================================
 router.post('/signup', async (req, res) => {
-    try {
-        // Verify the request body has a username and password
-        if (req.body.username && req.body.password) {
-            const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
-            // Create new user object with the request body and hashed password
-            let newUser = {
-                username: req.body.username,
-                password: hashPassword
-            }
-            // Check if a user already exists with the same username
-            const existingUser = await User.findOne({ username: req.body.username })
-            if (!existingUser) {
-                // If the user does not already exist, create a new user
-                const createdUser = await User.create(newUser)
-                if (createdUser) {
-                    // If the user was created successfully, generate a JWT and send it back to the client
-                    const payload = {
-                        _id: createdUser._id,
-                        username: createdUser.username
-                    }
-                    const token = jwt.encode(payload, config.jwtSecret)
-                    return res.status(200).json({
-                        token: token,
-                        username: createdUser.username,
-                        userId: createdUser._id
-                    })
-                } else {
-                    return res.status(401).json({ message: 'User already exists' })
-                }
-            } else {
-                return res.status(401).json({ message: 'User already exists' })
-            }
-        } else {
-            return res.status(401).json({ message: 'Request missing username or password field' })
+    // Verify the request body has an username and password
+    if (req.body.username && req.body.password) {
+        const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
+        // Make a new user object with the request body and password
+        let newUser = {
+            username: req.body.username,
+            password: hashPassword
         }
-    } catch (error) {
-        return res.status(500).json({ message: 'An error occurred', error });
+        // Check if a user exists with the same username and password
+        User.findOne({ username: req.body.username })
+            .then((user) => {
+                if (!user) {
+                    User.create(newUser)
+                        .then(user => {
+                            if (user) {
+                                const payload = {
+                                    id: user._id,
+                                    username: user.username
+                                }
+                                const token = jwt.encode(payload, config.jwtSecret)
+                                res.json({
+                                    token: token,
+                                    username: user.username,
+                                    userId: user._id
+                                })
+                                // Send an error if the user already exists
+                            } else {
+                                return res.sendStatus(401).json({ message: 'User already exists' })
+                            }
+                        })
+                    // Send error if user used an invalid usernam
+                } else {
+                    return res.sendStatus(401).json({ message: 'Invalid username' })
+                }
+            })
+        // Send an error if the request body does not have an username and password
+    } else {
+        return res.sendStatus(401).json({ message: 'Request missing username or password' })
     }
-});
+})
+
 
 
 
 //==================================
 //   LOG IN ROUTE / FIND ONE USER
 //==================================
-router.post('/login', async (req, res) => {
-    try {
-        // Attempt to find the user by their username in the database
-        const foundUser = await User.findOne({ username: req.body.username });
-
-        if (foundUser) {
-            const isMatch = await bcrypt.compare(req.body.password, foundUser.password);
-            if (isMatch) {
-                // if the above applies, send the JWT to the browser
-                const payload = { id: foundUser._id, username: foundUser.username };
-                const token = jwt.encode(payload, config.jwtSecret);
-                const userReviews = await db.Review({ user: foundUser._id })
-                res.json({
-                    username: foundUser.username,
-                    userId: foundUser._id,
-                    token: token,
-                    reviews: userReviews
-                });
-                localStorage.setItem('username', foundUser.username)
-                localStorage.setItem('userId', foundUser._id)
-                localStorage.setItem('token', token)
-            } else {
-                res.status(401).json({ message: "Invalid Credentials" });
+router.post('/login', (req, res) => {
+    // Attempt to find the user by their username and password in the database
+    if (req.body.username && req.body.password) {
+        User.findOne({ username: req.body.username }, async (err, user) => {
+            if (err || user == null) {
+                res.sendStatus(404)
             }
-        } else {
-            res.status(401).json({ message: "Invalid Credentials" });
-        }
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({ message: 'An error occurred', error });
+            // check to:
+            // 1. make sure the user was found in the database
+            // 2. make sure the user entered in the correct password
+            const match = await bcrypt.compare(req.body.password, user.password)
+            if (match === true) {
+                const payload = { id: user._id, username: user.username }
+                const token = jwt.encode(payload, config.jwtSecret)
+                res.json({
+                    token: token,
+                    username: user.username,
+                    userId: user._id
+                })
+            } else {
+                res.sendStatus(401).json({ message: 'Invalid credentials' })
+            }
+        })
+    } else {
+        res.sendStatus(401).json({ message: 'Invalid credentials' })
     }
 });
+
 
 
 
@@ -121,10 +114,10 @@ router.get('/token', isAuthenticated, async (req, res) => {
     const tokenString = req.headers.authorization
     const token = tokenString.replace("Bearer ", "");
     const decoded = jwt.decode(token, config.jwtSecret)
-    const foundUser = await db.User.findById(decoded.id)
-    const userReviews = await db.Review.find({ user: foundUser._id })
+    const User = await db.User.findById(decoded.id)
+    const userReviews = await db.Review.find({ reviewer: User._id })
     res.json({
-        user: foundUser,
+        user: User,
         reviews: userReviews
     })
 })

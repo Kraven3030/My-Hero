@@ -9,17 +9,14 @@ const config = require('../config/config');
 const Review = db.Review;
 
 
+// Checks if a user is authenticated.
 function isAuthenticated(req, res, next) {
     if (req.headers.authorization) {
-        const token = req.headers.authorization.split(" ")[1];
-        const decoded = jwt.decode(token, config.jwtSecret);
-        req.userId = decoded._id;
-        next();
+        next()
     } else {
-        res.sendStatus(401);
+        res.sendStatus(401)
     }
 }
-
 
 //==================
 //     ROUTES
@@ -30,13 +27,15 @@ function isAuthenticated(req, res, next) {
 //======================
 router.post('/create', isAuthenticated, async (req, res) => {
     const newReview = {
+        marvelId: req.body.marvelId,
+        marvelTitle: req.body.marvelTitle,
         title: req.body.title,
         body: req.body.body,
         reviewer: req.body.reviewer
     }
     Review.create(newReview)
-        .then(review => {
-            console.log(review);
+        .then(result => {
+            console.log(result);
             res.status(200).json({
                 message: "Review created successfully"
             })

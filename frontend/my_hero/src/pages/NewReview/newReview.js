@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { createReview } from "../../utils/api"
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function NewReview() {
 
-    const location = useLocation();
-    const { state } = location;
     const navigate = useNavigate();
-    const baseUrl = "http://gateway.marvel.com"
     const [reviewData, setReviewData] = useState({
         marvelId: '',
         marvelTitle: '',
@@ -27,7 +24,7 @@ function NewReview() {
             marvelTitle: reviewData.marvelTitle,
             title: reviewData.title,
             body: reviewData.body,
-            reviewer: reviewData.reviewer
+            reviewer: localStorage.getItem('userId')
         }
         createReview(reviewInfo)
             .then((data) => console.log(data))
@@ -36,7 +33,7 @@ function NewReview() {
             marvelTitle: '',
             title: '',
             body: '',
-            reviewer: '',
+            reviewer: localStorage.getItem('userId')
         })
         navigate('/MyReviews', { replace: true });
     }

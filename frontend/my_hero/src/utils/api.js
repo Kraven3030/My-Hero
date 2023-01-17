@@ -39,15 +39,14 @@ export async function allReviews(marvelId) {
     return data
 }
 //==================================================================
-// Axios request that will allow users to create revies once they are logged in
+// Axios request that will allow users to create reviews once they are logged in
 export async function createReview(reviewData) {
     const config = {
         headers: {
             'Authorization': localStorage.getItem('token')
         },
-        data: reviewData
     }
-    const { data } = await axios.post('http://localhost:7500/reviews/create/', config)
+    const { data } = await axios.post('http://localhost:7500/reviews/create/', reviewData, config)
     return data
 }
 
