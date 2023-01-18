@@ -15,12 +15,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://i2.wp.com/batman-news.com/wp-content/uploads/2020/06/Cover-2.jpg?resize=696%2C1070&quality=80&strip=info&ssl=1" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -30,12 +26,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://universaldork.files.wordpress.com/2021/05/amazingspider_man293.jpg" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -45,12 +37,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://img.buzzfeed.com/buzzfeed-static/static/2022-03/25/17/asset/86456cf1bf79/sub-buzz-2388-1648229594-1.jpg?crop=540%3A800%3B696%2C144&downsize=700%3A%2A&output-quality=auto&output-format=auto" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -60,12 +48,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://thegww.com/wp-content/uploads/2018/12/STL073949-675x1024.jpg" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -75,12 +59,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://img.huffingtonpost.com/asset/5bb6156b3c000020010d2776.jpeg?ops=scalefit_720_noupscale" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -90,12 +70,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://storage.googleapis.com/stateless-thedailyfandom-org/2020/08/8c2c2187-cover-of-crisis-on-infinite-earths-7-featuring-superman-mourning-the-death-of-his-cousin-kara-z.jpeg" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -105,12 +81,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://sm.ign.com/t/ign_nl/screenshot/b/bthe-aveng/bthe-avengers-vol-1-223bbrbrbdrawn-byb-ed-hanniganbrbrthe-no_ju5e.1080.jpg" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -120,12 +92,8 @@ function Main() {
                                 <img className="Authorsolute inset-0 h-full w-full object-cover" src="https://josephmallozzi.com/wp-content/uploads/2017/12/1122.jpg?w=195" alt="" />
                             </div>
                             <div className="p-4">
-                                <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
                                 <h2 className="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
                                 <p className="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <div className="mt-3 flex items-center">
-                                    <span className="text-sm font-semibold">Author</span>&nbsp;<span className="font-bold text-xl">Lorem</span>&nbsp;<span className="text-sm font-semibold"></span>
-                                </div>
                             </div>
                         </a>
                     </div>

@@ -29,7 +29,7 @@ export async function getUserdata(userId) {
 //==================================================================
 // Axios request to get all users personal reviews is user is logged in
 export async function userReviews(userId) {
-    const { data } = await axios.get(`http://localhost:7500/reviews/${userId}`)
+    const { data } = await axios.get(`http://localhost:7500/reviews/user/${userId}`)
     return data
 }
 //==================================================================
@@ -39,7 +39,7 @@ export async function allReviews(marvelId) {
     return data
 }
 //==================================================================
-// Axios request that will allow users to create reviews once they are logged in
+// Axios request that will allow users to CREATE reviews once they are logged in
 export async function createReview(reviewData) {
     const config = {
         headers: {
@@ -49,8 +49,31 @@ export async function createReview(reviewData) {
     const { data } = await axios.post('http://localhost:7500/reviews/create/', reviewData, config)
     return data
 }
+//=====================================================================
+// Axios request that will allow users to UPDATE reviews once they are logged in
+export async function updateReview(reviewData) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
+    const { data } = await axios.put('http://localhost:7500/reviews/update', reviewData, config)
+    return data
+}
+//=======================================================================
+// Axios request that will allow users to DELETE reviews once they are logged in
+export async function deleteReview(reviewId) {
+    const config = {
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
+    }
+    const { data } = await axios.delete(`http://localhost:7500/reviews/delete/${reviewId}`, config)
+    return data
+}
 
 //===============================================================================================
+// FUNCTIONS FOR MARVEL API DATABASE
 
 const API_URL = process.env.REACT_APP_BASE_URL;
 // This function concanenates 3 parameters into a single string. Then it is passed as an argument to the MD5 function.

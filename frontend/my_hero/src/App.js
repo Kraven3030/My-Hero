@@ -12,6 +12,7 @@ import AboutHero from "./pages/AboutHero/aboutHero";
 import AboutComic from "./pages/AboutComic/aboutComic";
 import NewReview from "./pages/NewReview/newReview";
 import MyReviews from "./pages/MyReviews/myReviews";
+import EditReview from "./pages/EditReview/editReview";
 import Search from "./components/Search/search";
 import SearchResults from "./components/SearchResults/searchResults";
 
@@ -45,6 +46,7 @@ function App() {
           <Route path='/comic/:id' element={<AboutComic />} />
           <Route path='/NewReview' element={<NewReview />} />
           <Route path='/MyReviews' element={<MyReviews />} />
+          <Route path='/EditReview' element={<EditReview />} />
         </Routes>
       </main>
     </>

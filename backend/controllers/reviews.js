@@ -51,28 +51,34 @@ router.post('/create', isAuthenticated, async (req, res) => {
 //==========================
 //   REVIEWS BY USER ID
 //==========================
-router.get('/user', (req, res) => {
-    db.User.findById(req.query.id)
-        .then(user => {
-            if (!user) {
-                res.status(404).json({ message: "User not found" });
+router.get('/user/:id', (req, res) => {
+    console.log("Reviews for user " + req.params.id);
+    db.User.findById(
+        req.params.id,
+        (err, user) => {
+            if (err) {
+                res.sendStatus(500).json({ message: 'No reviews found!' })
+                console.log(err)
             } else {
-                db.Review.find({ 'reviewer': req.query.id })
-                    .then(reviews => {
-                        res.json({
-                            user: user.username,
-                            reviews: [reviews]
-                        });
-                    });
+
+                console.log(user)
+                if (user) {
+                    db.Review.find(
+                        { 'reviewer': req.params.id },
+                        { marvelTitle: true, title: true, body: true, _id: true },
+                        (err, reviews) => {
+                            const result = {
+                                user: user.username,
+                                reviews: [reviews]
+                            }
+                            res.json(result)
+                        }
+                    )
+                }
             }
-        })
-        .catch(error => {
-            res.status(500).json({
-                message: "An error occurred",
-                error
-            });
-        });
-});
+        }
+    )
+})
 
 
 
