@@ -19,7 +19,7 @@ function MyReviews() {
 
     return (
         <div className="place-content-center">
-            <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">My personal Reviews</h1>            <div className="grid grid-cols-3">
+            <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">My personal Reviews</h1>            <div className="grid grid-cols-3">
                 {personalReviews?.reviews?.map((review) => (
                     <Card className="w-96 mx-auto text-center">
                         {review.map((review) => (
