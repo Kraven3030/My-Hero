@@ -57,17 +57,17 @@ router.post('/signup', async (req, res) => {
                                 })
                                 // Send an error if the user already exists
                             } else {
-                                return res.sendStatus(401).json({ message: 'User already exists' })
+                                return res.status(401).json({ message: 'User already exists' })
                             }
                         })
                     // Send error if user used an invalid usernam
                 } else {
-                    return res.sendStatus(401).json({ message: 'Invalid username' })
+                    return res.status(401).json({ message: 'Invalid username' })
                 }
             })
         // Send an error if the request body does not have an username and password
     } else {
-        return res.sendStatus(401).json({ message: 'Request missing username or password' })
+        return res.status(401).json({ message: 'Request missing username or password' })
     }
 })
 
@@ -97,11 +97,11 @@ router.post('/login', (req, res) => {
                     userId: user._id
                 })
             } else {
-                res.sendStatus(401).json({ message: 'Invalid credentials' })
+                res.status(401).json({ message: 'Invalid credentials' })
             }
         })
     } else {
-        res.sendStatus(401).json({ message: 'Invalid credentials' })
+        res.status(404).json({ message: 'User not found' })
     }
 });
 
