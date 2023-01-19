@@ -36,8 +36,8 @@ function EditReview() {
 
 
     return (
-        <div className="pt-40 flex justify-center h-screen">
-            <form className="flex flex-col gap-4 w-3/4">
+        <div className="pt-40 flex justify-center h-96">
+            <form className="flex flex-col gap-4 w-1/2">
                 <h2 className="text-2xl font-medium text-gray-900">Edit Review</h2>
                 <div>
                     <div className="mb-2 block">

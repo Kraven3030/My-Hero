@@ -8,7 +8,6 @@ import Login from './components/Login/login';
 import Signup from './components/Signup/signup';
 import Home from './pages/Home/home';
 import Main from './pages/Main/main';
-import HeroModal from './components/HeroModal/heroModal';
 import AboutHero from "./pages/AboutHero/aboutHero";
 import AboutComic from "./pages/AboutComic/aboutComic";
 import MyReviews from "./pages/MyReviews/myReviews";

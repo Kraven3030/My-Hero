@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { createUser } from '../../utils/api'
 import { useNavigate } from 'react-router-dom';
 
-import './signup.css'
 
 
 function Signup(props) {
