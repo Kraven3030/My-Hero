@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import { updateReview, deleteReview } from "../../utils/api";
+import { TextInput, Label, Button } from 'flowbite-react'
 
 function EditReview() {
 
@@ -35,44 +36,44 @@ function EditReview() {
 
 
     return (
-        <div className="flex justify-center pt-40">
-            <div className="w-full max-w-sm p-4 bg-white rounded-lg shadow-md sm:p-6 md:p-8">
-                <form className="space-y-6">
-                    <h5 className="text-xl font-medium text-gray-900">Edit Review</h5>
-                    <div className="mb-6">
-                        <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            name="title"
-                            value={review.title}
-                            onChange={handleChange}
-                        />
+        <div className="pt-40 flex justify-center h-screen">
+            <form className="flex flex-col gap-4 w-3/4">
+                <h2 className="text-2xl font-medium text-gray-900">Edit Review</h2>
+                <div>
+                    <div className="mb-2 block">
+                        <Label className="text-lg" htmlFor="title">Title:</Label>
                     </div>
-                    <div className="mb-6">
-                        <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-gray-900">Review:</label>
-                        <textarea
-                            name="body"
-                            id="large-input"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-32"
-                            value={review.body}
-                            onChange={handleChange}
-                        />
+                    <TextInput
+                        id="large-input"
+                        type="text"
+                        name="title"
+                        value={review.title}
+                        onChange={handleChange}
+                        required={true}
+                    />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label className="text-lg" htmlFor="body">Review:</Label>
                     </div>
-                    <div className="flex justify-between">
-                        <button type="submit" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={(event) => handleSubmit(event)}>
-                            Save Changes
-                        </button>
-                        <button type="submit" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={(event) => handleDelete(event)}>
-                            Delete
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    <TextInput
+                        id="large-input"
+                        name="body"
+                        value={review.body}
+                        onChange={handleChange}
+                        required={true}
+                    />
+                </div>
+                <div className="flex justify-between">
+                    <Button type="submit" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={(event) => handleSubmit(event)}>
+                        Save Changes
+                    </Button>
+                    <Button type="submit" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={(event) => handleDelete(event)}>
+                        Delete
+                    </Button>
+                </div>
+            </form>
         </div>
-
-
     )
 }
 

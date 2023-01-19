@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from 'flowbite-react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { fetchComic } from '../../utils/api'
+import ComicModal from '../../components/ComicModal/comicModal'
 
 function AboutComic() {
 
     const { id } = useParams()
     const [comic, setComic] = useState()
+    const [comicModal, setComicModal] = useState(false);
 
     useEffect(() => {
         fetchComic(id)
@@ -33,7 +35,8 @@ function AboutComic() {
                             ))}
                         </ul>
                     </div>
-                    <Link to='/NewReview'><button className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Leave A Review</button></Link>
+                    <button onClick={() => { setComicModal(true); }} className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Leave A Review</button>
+                    {comicModal && <ComicModal closeModal={setComicModal} />}
                 </Card>
             </div>
         </div>

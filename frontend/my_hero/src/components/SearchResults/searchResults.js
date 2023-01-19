@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 // Imports for Hero and Comic results
-import ComicResults from '../../ComicResults/comicResults';
+import ComicResults from '../ComicResults/comicResults';
 import HeroResults from '../HeroResults/heroResults';
 
 import Container from '../Container/container';

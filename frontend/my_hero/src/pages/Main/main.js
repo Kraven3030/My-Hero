@@ -9,7 +9,7 @@ function Main() {
 
     const [comics, setComics] = useState([]);
     const randomComics = useMemo(() => comics.sort(() => Math.random() - 0.5).slice(0, 8), [comics]);
-    const names = ["Deadpool", "Wolverine", "Spider-Man", "Hulk", "Thor", "Black Widow", "Captain America", "X-Men", "Black Panther", "Daredevil", "Fantastic Four", "Doctor Doom", "Guardians of the galaxy", "She-Hulk", "Civil War"]
+    const names = ["Deadpool", "Wolverine", "Spider-Man", "Hulk", "Thor", "Black Widow", "Captain America", "X-Men", "Black Panther", "Daredevil", "Fantastic Four", "Doctor Doom", "Guardians of the galaxy", "She-Hulk", "Civil War", "Cyclops", "Gambit"]
 
     useEffect(() => {
         fetchComics(names[Math.floor(Math.random() * names.length)]).then(data => setComics(data));
@@ -18,8 +18,8 @@ function Main() {
 
     return (
 
-        <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6">
-            <h1 className="pt-5 pb-5 text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase font-semibold text-gray-900 underline dark:text-white decoration-red-500">Popular Comics</h1>
+        <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6 bg-cover bg-auto" style={{ backgroundImage: `url(${"https://u7.uidownload.com/vector/786/841/vector-abstract-comic-book-background-eps-thumbnail.jpg"})` }}>
+            <h1 className="pt-5 pb-5 text-center text-5xl font-bold text-white uppercase font-semibold underline">Popular Comics</h1>
             <div className="container mx-auto">
                 <div className="flex flex-wrap -mx-4">
                     {randomComics.map((comic) => (
