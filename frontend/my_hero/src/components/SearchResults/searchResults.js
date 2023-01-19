@@ -25,7 +25,7 @@ const SearchResults = () => {
         ))
     }
 
-    // This block of code does the same as the above code but for comis instead.
+    // This block of code does the same as the above code but for comics instead.
     if (comics) {
         comicCards = comics.map((comic) => (
             <ComicResults creators={comic.creators} title={comic.title} id={comic.id} key={comic.id} thumbnail={`${comic.thumbnail.path}/${IMAGE_SIZE}.${comic.thumbnail.extension}`} />

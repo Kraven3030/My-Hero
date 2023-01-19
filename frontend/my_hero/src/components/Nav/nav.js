@@ -4,14 +4,23 @@ import './nav.css'
 
 function Nav(props) {
 
+    // Checks if user is logged in first before allowing them to use the search feature
+    const handleSearch = () => {
+        if (!props.isLoggedIn) {
+            alert("You must be logged in to use search");
+        } else {
+            navigate("/search-results")
+        }
+    }
     const navigate = useNavigate();
-    const initialState = [<Link to='/search-results' key="1"><button className="text-white bg-black shadow-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">SEARCH</button></Link>]
+    const initialState = [<button key="1" onClick={handleSearch} className="text-white bg-black shadow-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">SEARCH</button>]
 
     const handleLogout = () => {
         localStorage.clear();
         props.setIsLoggedIn(false);
         navigate("/", { replace: true });
     }
+
 
     const [navItems, setNavItems] = useState(initialState)
 

@@ -34,9 +34,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<Signup isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/searchbar' element={<Search />} />
         <Route path="/" element={<Home />} />
         <Route path='/main' element={<Main />} />
-        <Route path='/searchbar' element={<Search />} />
         <Route path='/search-results' element={<SearchResults />} />
         <Route path='/:id' element={<AboutHero />} />
         <Route path='/comic/:id' element={<AboutComic />} />
