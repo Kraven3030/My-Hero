@@ -22,9 +22,9 @@ function Forum() {
     return (
         <>
             <body style={{
-                backgroundColor: "#4f4c4c"
+                backgroundColor: "rgb(229 231 235",
             }}>
-                <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-white bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">Public Forum</h1>
+                <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-black bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">Public Forum</h1>
                 <div className="pt-10 grid grid-cols-3">
                     {reviews.map(review => (
                         <div className="col-span-1" key={review._id}>
