@@ -7,8 +7,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
-    "bootstrap": "^5.3.0-alpha1",
-    "comic-vine-sdk": "^1.2.2",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "flowbite": "^1.6.2",
