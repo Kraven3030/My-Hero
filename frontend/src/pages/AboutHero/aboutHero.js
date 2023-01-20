@@ -20,7 +20,7 @@ function AboutHero() {
 
 
     return (
-        <body style={{
+        <div style={{
             backgroundColor: "rgb(229 231 235",
         }}>
             <div className='flex justify-center pt-10 pb-10'>
@@ -44,7 +44,7 @@ function AboutHero() {
                     </Card>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

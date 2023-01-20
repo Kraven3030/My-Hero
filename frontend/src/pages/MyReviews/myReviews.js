@@ -19,7 +19,7 @@ function MyReviews({ closeModal, isOpen }) {
 
     return (
         <>
-            <body style={{
+            <div style={{
                 backgroundColor: "rgb(229 231 235 ",
                 minHeight: "100vh"
             }}>
@@ -28,17 +28,17 @@ function MyReviews({ closeModal, isOpen }) {
                     {personalReviews?.reviews?.map((review) => (
                         <div className="grid grid-cols-3" key={review._id}>
                             <div className="col-start-2">
-                                {review.map((review) => (
-                                    <Card className="w-96 mx-auto text-center" style={{
+                                {review.map((review, i) => (
+                                    <Card key={i} className="w-96 mx-auto text-center" style={{
                                         backgroundColor: "white"
                                     }}>
-                                        <div>
+                                        <div key={i}>
                                             <h3 className="text-center"><strong style={{ color: '#e70909' }}>Hero or Comic: </strong>{review.marvelTitle}</h3>
                                             <h4 className="text-center"><strong style={{ color: '#e70909' }}>Title: </strong>{review.title}</h4>
-                                            <p className="text-center pb-2"><strong style={{ color: '#e70909' }}>Review: </strong>{review.body}</p>
+                                            <p className="text-center pb-2"><strong style={{ color: '#e70909' }}>Review: </strong>{review.div}</p>
                                             <Link to={"/EditReview/"} state={{
                                                 title: review.title,
-                                                body: review.body,
+                                                div: review.div,
                                                 marvelTitle: review.marvelTitle,
                                                 reviewId: review._id
                                             }}>
@@ -53,7 +53,7 @@ function MyReviews({ closeModal, isOpen }) {
                         </div>
                     ))}
                 </div>
-            </body>
+            </div>
         </>
     )
 }

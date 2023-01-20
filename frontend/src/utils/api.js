@@ -29,13 +29,13 @@ export async function getUserdata(userId) {
 //==================================================================
 // Axios request to get all users personal reviews is user is logged in
 export async function userReviews(userId) {
-    const { data } = await axios.get(`reviews/user/${userId}`)
+    const { data } = await axios.get(`/reviews/user/${userId}`)
     return data
 }
 //==================================================================
 //Get all reviews by Marvel ID
 export async function allReviews(marvelId) {
-    const { data } = await axios.get(`reviews/`)
+    const { data } = await axios.get(`/reviews/`)
     return data
 }
 //==================================================================
@@ -46,7 +46,7 @@ export async function createReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         },
     }
-    const { data } = await axios.post('reviews/create/', reviewData, config)
+    const { data } = await axios.post('/reviews/create/', reviewData, config)
     return data
 }
 //=====================================================================
@@ -57,7 +57,7 @@ export async function updateReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.put('reviews/update', reviewData, config)
+    const { data } = await axios.put('/reviews/update', reviewData, config)
     return data
 }
 //=======================================================================
@@ -68,7 +68,7 @@ export async function deleteReview(reviewId) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.delete(`reviews/delete/${reviewId}`, config)
+    const { data } = await axios.delete(`/reviews/delete/${reviewId}`, config)
     return data
 }
 
@@ -120,6 +120,7 @@ const fetchHero = async (id) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
+        console.log(data)
         return data.data.results
     } catch (err) {
         console.error(err)

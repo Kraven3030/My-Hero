@@ -60,7 +60,7 @@ function Search({ setHeroes, setComics }) {
 
 
     return (
-        <body>
+        <div>
             <div className="flex justify-center pb-10 pt-10">
                 <form className="flex flex-col items-center w-5/6">
                     <label htmlFor="simple-search" className="sr-only">SEARCH</label>
@@ -87,7 +87,7 @@ function Search({ setHeroes, setComics }) {
                     </div>
                 </form>
             </div>
-        </body>
+        </div>
 
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 function PageNotFound() {
     return (
-        <body style={{
+        <div style={{
             backgroundColor: "rgb(229 231 235",
         }}>
             <div className="flex justify-center items-center h-screen">
@@ -12,7 +12,7 @@ function PageNotFound() {
                     <a href="/" className="text-blue-500 underline">Go to Homepage</a>
                 </div>
             </div>
-        </body>
+        </div>
     );
 }
 

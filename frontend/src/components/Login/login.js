@@ -37,7 +37,7 @@ function Login(props) {
     };
 
     return (
-        <body style={{
+        <div style={{
             backgroundImage: `url(${"https://wallpapercave.com/wp/AI4xoXB.jpg"})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -67,7 +67,7 @@ function Login(props) {
                     </form>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

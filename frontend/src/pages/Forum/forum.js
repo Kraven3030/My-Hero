@@ -21,7 +21,7 @@ function Forum() {
 
     return (
         <>
-            <body style={{
+            <div style={{
                 backgroundColor: "rgb(229 231 235",
             }}>
                 <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-black bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">Public Forum</h1>
@@ -36,7 +36,7 @@ function Forum() {
                                     <strong style={{ color: '#e70909' }}>Title: </strong> "{review.title}"
                                 </h2>
                                 <h5 className="font-normal text-black-700 dark:text-gray-400">
-                                    <strong style={{ color: '#e70909' }}>Review: </strong> "{review.body}"
+                                    <strong style={{ color: '#e70909' }}>Review: </strong> "{review.div}"
                                 </h5>
                                 <p><strong style={{ color: '#e70909' }}>User: </strong> {review.reviewer.username}</p>
                                 <p>{new Date(review.createdAt).toLocaleString()}</p>
@@ -44,7 +44,7 @@ function Forum() {
                         </div>
                     ))}
                 </div>
-            </body>
+            </div>
         </>
     )
 }

@@ -19,7 +19,7 @@ function AboutComic() {
     if (!comic) return
 
     return (
-        <body style={{
+        <div style={{
             backgroundColor: "rgb(229 231 235"
         }}>
             <div className='flex justify-center pt-10 pb-10'>
@@ -43,7 +43,7 @@ function AboutComic() {
                     </Card>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

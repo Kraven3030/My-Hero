@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     return (
-        <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6 bg-cover bg-auto" style={{
+        <div className="antialiased bg-gray-200 text-gray-900 font-sans p-6 bg-cover bg-auto" style={{
             backgroundImage: `url(${"https://sportshub.cbsistatic.com/i/2021/03/18/f2a9b347-f2e0-42d2-8801-681f672c333f/marvel-ultimate-universe-header-1230871.jpg"})`,
             minHeight: "100vh"
         }}>
@@ -26,7 +26,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 

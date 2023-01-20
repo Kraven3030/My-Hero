@@ -33,7 +33,7 @@ function Signup(props) {
     };
 
     return (
-        <body style={{
+        <div style={{
             backgroundImage: `url(${"https://i.annihil.us/u/prod/marvel/i/mg/b/f0/5a6a3c922daf3/clean.jpg"})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -63,7 +63,7 @@ function Signup(props) {
                     </form>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
 
