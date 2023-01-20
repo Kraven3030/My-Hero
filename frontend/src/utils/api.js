@@ -5,7 +5,7 @@ import MD5 from 'crypto-js/md5'
 //===============================================================
 // Axios request for user signup
 export async function createUser(formData) {
-    const { data } = await axios.post('http://localhost:7500/users/signup', formData)
+    const { data } = await axios.post('users/signup', formData)
     localStorage.setItem('username', data.username)
     localStorage.setItem('userId', data.userId)
     localStorage.setItem('token', data.token)
@@ -14,7 +14,7 @@ export async function createUser(formData) {
 //================================================================
 // Axios request to log in to user account
 export async function loginToAccount(formData) {
-    const { data } = await axios.post('http://localhost:7500/users/login', formData)
+    const { data } = await axios.post('users/login', formData)
     localStorage.setItem('username', data.username)
     localStorage.setItem('userId', data.userId)
     localStorage.setItem('token', data.token)
@@ -23,19 +23,19 @@ export async function loginToAccount(formData) {
 //=================================================================
 // Axios request to get user data if user is logged in
 export async function getUserdata(userId) {
-    const { data } = await axios.get('http://localhost:7500/users/', userId)
+    const { data } = await axios.get('users/', userId)
     return data
 }
 //==================================================================
 // Axios request to get all users personal reviews is user is logged in
 export async function userReviews(userId) {
-    const { data } = await axios.get(`http://localhost:7500/reviews/user/${userId}`)
+    const { data } = await axios.get(`reviews/user/${userId}`)
     return data
 }
 //==================================================================
 //Get all reviews by Marvel ID
 export async function allReviews(marvelId) {
-    const { data } = await axios.get(`http://localhost:7500/reviews/`)
+    const { data } = await axios.get(`reviews/`)
     return data
 }
 //==================================================================
@@ -46,7 +46,7 @@ export async function createReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         },
     }
-    const { data } = await axios.post('http://localhost:7500/reviews/create/', reviewData, config)
+    const { data } = await axios.post('reviews/create/', reviewData, config)
     return data
 }
 //=====================================================================
@@ -57,7 +57,7 @@ export async function updateReview(reviewData) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.put('http://localhost:7500/reviews/update', reviewData, config)
+    const { data } = await axios.put('reviews/update', reviewData, config)
     return data
 }
 //=======================================================================
@@ -68,7 +68,7 @@ export async function deleteReview(reviewId) {
             'Authorization': localStorage.getItem('token')
         }
     }
-    const { data } = await axios.delete(`http://localhost:7500/reviews/delete/${reviewId}`, config)
+    const { data } = await axios.delete(`reviews/delete/${reviewId}`, config)
     return data
 }
 

@@ -28,11 +28,11 @@ function AboutComic() {
                         <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt={comic.thumbnail} />
                         <h1 className="text-4xl text-gray-900">{comic.title}</h1>
                         {comic.description ? (<>
-                            <p><strong style={{ color: '#ee7b08' }}>About: </strong>{comic.description}</p>
+                            <p><strong style={{ color: '#e70909' }}>About: </strong>{comic.description}</p>
                         </>) : null}
                         <div>
                             <ul>
-                                <h3><strong style={{ color: '#ee7b08' }}>Creators of series: </strong></h3>
+                                <h3><strong style={{ color: '#e70909' }}>Creators of series: </strong></h3>
                                 {comic.creators.items.map((creators) => (
                                     <li key={Math.random() * 1000}>{creators.name}</li>
                                 ))}

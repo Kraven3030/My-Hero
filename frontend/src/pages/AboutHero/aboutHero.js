@@ -29,11 +29,11 @@ function AboutHero() {
                         <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt={hero.thumbnail} />
                         <h1 className="text-4xl text-gray-900">{hero.name}</h1>
                         {hero.description ? (<>
-                            <p><strong style={{ color: '#ee7b08' }}>About: </strong>{hero.description}</p>
+                            <p><strong style={{ color: '#e70909' }}>About: </strong>{hero.description}</p>
                         </>) : null}
                         <div>
                             <ul>
-                                <h3><strong style={{ color: '#ee7b08' }}>Appears in: </strong></h3>
+                                <h3><strong style={{ color: '#e70909' }}>Appears in: </strong></h3>
                                 {hero.series.items.map((s) => (
                                     <li key={Math.random() * 1000}>{s.name}</li>
                                 ))}
