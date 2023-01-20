@@ -35,11 +35,12 @@ function MyReviews({ closeModal, isOpen }) {
                                         <div key={i}>
                                             <h3 className="text-center"><strong style={{ color: '#e70909' }}>Hero or Comic: </strong>{review.marvelTitle}</h3>
                                             <h4 className="text-center"><strong style={{ color: '#e70909' }}>Title: </strong>{review.title}</h4>
-                                            <p className="text-center pb-2"><strong style={{ color: '#e70909' }}>Review: </strong>{review.div}</p>
+                                            <p className="text-center pb-2"><strong style={{ color: '#e70909' }}>Review: </strong>{review.body}</p>
                                             <Link to={"/EditReview/"} state={{
                                                 title: review.title,
                                                 div: review.div,
                                                 marvelTitle: review.marvelTitle,
+                                                body: review.body,
                                                 reviewId: review._id
                                             }}>
                                                 <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">

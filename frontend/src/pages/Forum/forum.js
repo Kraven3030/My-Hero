@@ -36,7 +36,7 @@ function Forum() {
                                     <strong style={{ color: '#e70909' }}>Title: </strong> "{review.title}"
                                 </h2>
                                 <h5 className="font-normal text-black-700 dark:text-gray-400">
-                                    <strong style={{ color: '#e70909' }}>Review: </strong> "{review.div}"
+                                    <strong style={{ color: '#e70909' }}>Review: </strong> "{review.body}"
                                 </h5>
                                 <p><strong style={{ color: '#e70909' }}>User: </strong> {review.reviewer.username}</p>
                                 <p>{new Date(review.createdAt).toLocaleString()}</p>
