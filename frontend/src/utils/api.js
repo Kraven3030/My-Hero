@@ -102,7 +102,6 @@ const fetchHeroes = async (value) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data.data.results)
         return data.data.results
     } catch (err) {
         console.error(err)
@@ -142,7 +141,6 @@ const fetchComics = async (value) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data.data.results)
         return data.data.results
     } catch (err) {
         console.error(err)
@@ -162,7 +160,6 @@ const fetchComic = async (id) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data.data.results)
         return data
     } catch (err) {
         console.error(err)

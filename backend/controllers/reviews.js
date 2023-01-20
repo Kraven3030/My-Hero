@@ -36,7 +36,6 @@ router.post('/create', isAuthenticated, async (req, res) => {
     }
     Review.create(newReview)
         .then(result => {
-            console.log(result);
             res.status(200).json({
                 message: "Review created successfully"
             })
@@ -53,16 +52,12 @@ router.post('/create', isAuthenticated, async (req, res) => {
 //   REVIEWS BY USER ID
 //==========================
 router.get('/user/:id', (req, res) => {
-    console.log("Reviews for user " + req.params.id);
     db.User.findById(
         req.params.id,
         (err, user) => {
             if (err) {
                 res.sendStatus(500).json({ message: 'No reviews found!' })
-                console.log(err)
             } else {
-
-                console.log(user)
                 if (user) {
                     db.Review.find(
                         { 'reviewer': req.params.id },
@@ -110,7 +105,6 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 //   REVIEWS BY All USERS
 //==========================
 router.get('/', async (req, res) => {
-    console.log("All Reviews");
     const populatedReviews = await
         Review.find({}).populate('reviewer')
     res.json(populatedReviews)
