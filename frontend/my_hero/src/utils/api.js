@@ -35,7 +35,7 @@ export async function userReviews(userId) {
 //==================================================================
 //Get all reviews by Marvel ID
 export async function allReviews(marvelId) {
-    const { data } = await axios.get(`http://localhost:7500/reviews/${marvelId}`)
+    const { data } = await axios.get(`http://localhost:7500/reviews/`)
     return data
 }
 //==================================================================

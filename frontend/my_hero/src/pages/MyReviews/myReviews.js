@@ -20,22 +20,21 @@ function MyReviews({ closeModal, isOpen }) {
     return (
         <>
             <body style={{
-                backgroundImage: `url(${""})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundColor: "#4f4c4c",
                 minHeight: "100vh"
             }}>
-                <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-black bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">My personal Reviews</h1>
+                <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-white bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">My personal Reviews</h1>
                 <div className="place-content-center">
-                    <div className="place-content-center">
-                        {personalReviews?.reviews?.map((review) => (
-                            <Card className="w-96 mx-auto text-center">
-                                {review.map((review) => (
+                    {personalReviews?.reviews?.map((review) => (
+                        <div className="grid grid-cols-3" key={review._id}>
+                            {review.map((review) => (
+                                <Card className="w-96 mx-auto text-center" style={{
+                                    backgroundColor: "white"
+                                }}>
                                     <div>
-                                        <h3 className="text-center"><strong>Hero or Comic: </strong>{review.marvelTitle}</h3>
-                                        <h4 className="text-center"><strong>Title: </strong>{review.title}</h4>
-                                        <p className="text-center pb-2"><strong>Review: </strong>{review.body}</p>
+                                        <h3 className="text-center"><strong style={{ color: '#e70909' }}>Hero or Comic: </strong>{review.marvelTitle}</h3>
+                                        <h4 className="text-center"><strong style={{ color: '#e70909' }}>Title: </strong>{review.title}</h4>
+                                        <p className="text-center pb-2"><strong style={{ color: '#e70909' }}>Review: </strong>{review.body}</p>
                                         <Link to={"/EditReview/"} state={{
                                             title: review.title,
                                             body: review.body,
@@ -47,10 +46,10 @@ function MyReviews({ closeModal, isOpen }) {
                                             </button>
                                         </Link>
                                     </div>
-                                ))}
-                            </Card>
-                        ))}
-                    </div>
+                                </Card>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </body>
         </>

@@ -11,6 +11,7 @@ function Main() {
     const randomComics = useMemo(() => comics.sort(() => Math.random() - 0.5).slice(0, 12), [comics]);
     const names = ["Deadpool", "Wolverine", "Spider-Man", "Hulk", "Thor", "Black Widow", "Captain America", "X-Men", "Black Panther", "Daredevil", "Fantastic Four", "Doctor Doom", "Guardians of the galaxy", "She-Hulk", "Civil War", "Cyclops", "Gambit"]
 
+    // Gets comics from the array of names above randomly 
     useEffect(() => {
         fetchComics(names[Math.floor(Math.random() * names.length)]).then(data => setComics(data));
     }, []);

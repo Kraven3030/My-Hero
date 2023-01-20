@@ -22,6 +22,7 @@ function HeroModal({ closeModal, isOpen }) {
             marvelTitle: reviewData.marvelTitle,
             title: reviewData.title,
             body: reviewData.body,
+            createdAt: new Date().toISOString(),
             reviewer: localStorage.getItem('userId')
         }
         createReview(reviewInfo)

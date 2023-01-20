@@ -24,6 +24,10 @@ const reviewSchema = new Schema(
             type: mongoose.ObjectId,
             ref: 'User',
             required: true
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
         }
     },
     {

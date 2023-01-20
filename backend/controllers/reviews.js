@@ -31,6 +31,7 @@ router.post('/create', isAuthenticated, async (req, res) => {
         marvelTitle: req.body.marvelTitle,
         title: req.body.title,
         body: req.body.body,
+        createdAt: req.body.createdAt,
         reviewer: req.body.reviewer
     }
     Review.create(newReview)
@@ -106,12 +107,12 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
 })
 
 //==========================
-//   REVIEWS BY Marvel ID
+//   REVIEWS BY All USERS
 //==========================
-router.get('/id', async (req, res) => {
-    console.log("Reviews by marvel ID");
+router.get('/', async (req, res) => {
+    console.log("All Reviews");
     const populatedReviews = await
-        Review.find({ "marvelId": req.params.id }).populate('reviewer')
+        Review.find({}).populate('reviewer')
     res.json(populatedReviews)
 })
 
