@@ -48,7 +48,7 @@ function App() {
         <Route path='/comic/:id' element={<AboutComic />} />
         <Route path='/MyReviews' element={<MyReviews />} />
         <Route path='/EditReview' element={<EditReview />} />
-        <Route path='*' element={<PageNotFound />} />
+        <Route path='/*' element={<PageNotFound />} />
       </Routes>
     </>
   );
