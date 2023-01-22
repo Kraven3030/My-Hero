@@ -8,14 +8,16 @@ TECH STACK:
 -Javascript -React.js -Node.js -MongoDB -Mongoose -HTML -CSS -Tailwind -Flowbite -JWT -Axios -Express
 
 FEATURES:
--Login & signup with authorization by Json web token
 
-- Create personal reviews about comics or heroes.
+Login & signup with authorization by Json web token
 
--Edit or delete your personal reviews
+Create personal reviews about comics or heroes.
 
-- Access to a forum to see what other users are saying about their favorites
--Responsive
+Edit or delete your personal reviews
+
+Access to a forum to see what other users are saying about their favorites
+
+Responsive
 
 SCREENSHOTS:
 
