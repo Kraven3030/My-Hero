@@ -6,7 +6,7 @@ LINK TO APP:
 https://my-hero.herokuapp.com/
 
 TECH STACK:
--Javascript -React.js -Node.js -MongoDB -Mongoose -HTML -CSS -Tailwind -Flowbite -JWT -Axios -Express
+-Javascript -React.js -Node.js -Express -MongoDB -Mongoose - Axios -JSX -CSS -Tailwind -Flowbite -JWT
 
 FEATURES:
 
