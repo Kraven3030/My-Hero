@@ -2,7 +2,8 @@
 ABOUT:
 A MERN stack app with full CRUD capabilities built utilizing the official Marvel API to allow users to search for specific heroes and comics within the Marvel database. App was styled using Flowbite ontop of Tailwind CSS framework.
 
-Link to site: https://my-hero.herokuapp.com/
+LINK TO APP: 
+https://my-hero.herokuapp.com/
 
 TECH STACK:
 -Javascript -React.js -Node.js -MongoDB -Mongoose -HTML -CSS -Tailwind -Flowbite -JWT -Axios -Express
