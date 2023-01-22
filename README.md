@@ -9,15 +9,15 @@ TECH STACK:
 
 FEATURES:
 
-Login & signup with authorization by Json web token
+-Login & signup with authorization by Json web token
 
-Create personal reviews about comics or heroes.
+-Create personal reviews about comics or heroes.
 
-Edit or delete your personal reviews
+-Edit or delete your personal reviews
 
-Access to a forum to see what other users are saying about their favorites
+-Access to a forum to see what other users are saying about their favorites
 
-Responsive
+-Responsive
 
 SCREENSHOTS:
 
@@ -43,5 +43,6 @@ Search page
 ![Screenshot 2023-01-22 at 1 07 29 PM (3)](https://user-images.githubusercontent.com/114965290/213940711-6425c926-efe7-4ee2-a8e1-8bf2df1fa6ab.png)
 
 
-API provided by https://developer.marvel.com/
-CSS framework provide by https://flowbite.com/
+-API provided by https://developer.marvel.com/
+
+-CSS framework provide by https://flowbite.com/
