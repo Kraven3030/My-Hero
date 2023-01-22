@@ -34,7 +34,7 @@ Signup
 Landing page after login or signup
 ![Screenshot 2023-01-22 at 1 01 32 PM (3)](https://user-images.githubusercontent.com/114965290/213940675-a0eca153-901e-4051-882f-559eca79d309.png)
 
-User person reviews
+User personal reviews
 ![Screenshot 2023-01-22 at 1 05 35 PM (3)](https://user-images.githubusercontent.com/114965290/213940683-46d2b7a8-a104-49cf-ae79-4965daa9ddb0.png)
 
 Public forum
