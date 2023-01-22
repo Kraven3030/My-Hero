@@ -9,12 +9,16 @@ TECH STACK:
 
 FEATURES:
 -Login & signup with authorization by Json web token
+
 - Create personal reviews about comics or heroes.
+
 -Edit or delete your personal reviews
+
 - Access to a forum to see what other users are saying about their favorites
 -Responsive
 
 SCREENSHOTS:
+
 Home Page
 ![Screenshot 2023-01-22 at 12 56 21 PM (3)](https://user-images.githubusercontent.com/114965290/213940609-d340e55d-65b3-4bd5-b4da-4f32c6b9b6cb.png)
 
