@@ -23,7 +23,7 @@ function MyReviews({ closeModal, isOpen }) {
                 backgroundColor: "rgb(229 231 235 ",
                 minHeight: "100vh"
             }}>
-                <h1 className="pt-10 pb-5 text-center text-4xl font-bold text-black bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase">My personal Reviews</h1>
+                <h1 className="pt-10 pb-5 text-center text-5xl font-bold text-black bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 uppercase underline">My personal Reviews</h1>
                 <div className="place-content-center">
                     {personalReviews?.reviews?.map((review) => (
                         <div className="grid grid-cols-3" key={review._id}>
