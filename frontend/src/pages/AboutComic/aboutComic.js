@@ -3,6 +3,7 @@ import { Card } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
 import { fetchComic } from '../../utils/api'
 import ComicModal from '../../components/ComicModal/comicModal'
+import LearnMoreComic from '../../components/LearnMoreComic/learnMoreComic'
 
 function AboutComic() {
 
@@ -38,6 +39,7 @@ function AboutComic() {
                                 ))}
                             </ul>
                         </div>
+                        <LearnMoreComic comic={comic} />
                         <button onClick={() => { setComicModal(true); }} className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Leave A Review</button>
                         {comicModal && <ComicModal closeModal={setComicModal} />}
                     </Card>
