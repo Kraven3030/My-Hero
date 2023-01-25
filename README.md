@@ -1,6 +1,8 @@
 # MY-HERO
 ABOUT:
-A MERN stack app with full CRUD capabilities built utilizing the official Marvel API to allow users to search for specific heroes and comics within the Marvel database. App was styled using Flowbite ontop of Tailwind CSS framework.
+An application built using the MERN (MongoDB, Express, React, and Node.js) stack. It offers full CRUD (Create, Read, Update, and Delete) capabilities, and utilizes the official Marvel API to allow users to search for specific heroes and comics within the Marvel database. The application is built with user experience in mind, making it easy and intuitive to navigate and search for the desired content. The styling of the application is handled using Flowbite, which is built on top of the popular Tailwind CSS framework. This provides a clean and modern design that is both visually appealing and easy to use. Overall, this application is a powerful and efficient solution for accessing and exploring the vast Marvel universe.
+
+
 
 LINK TO APP: 
 https://my-hero.herokuapp.com/
