@@ -120,7 +120,6 @@ const fetchHero = async (id) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data)
         return data.data.results
     } catch (err) {
         console.error(err)

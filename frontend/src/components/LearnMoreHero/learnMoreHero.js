@@ -2,6 +2,7 @@ import React from 'react';
 
 const LearnMoreHero = ({ hero }) => {
     const handleClick = () => {
+        // Will navigate user to specific hero on Marvel webpage
         window.location.href = `https://www.marvel.com/comics/characters/${hero.id}/${hero.name}`;
     };
 
